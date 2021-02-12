@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/colorPrimary"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="SELECIONA LA OPCION A BUSCAR"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_margin="5dp"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            app:lottie_rawRes="@raw/corazon"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_filter_novendido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO VENDIDO "
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/rounden_button"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                />
+
+            <Button
+                android:id="@+id/btn_filter_vendido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VENDIDO "
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/rounden_button"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/search_one_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:text="Buscar por dia"
+            android:background="@drawable/rounden_button"
+            />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

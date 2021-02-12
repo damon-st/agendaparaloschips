@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/titulo_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText"
+        android:text="Procesando publicacion...."
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:layout_margin="18dp"
+        />
+
+
+    <FrameLayout
+        android:layout_below="@+id/titulo_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/amarilloloading"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+
+        <TextView
+            android:id="@+id/texto_progresso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/ubuntu_bold"
+            android:layout_gravity="bottom"
+            android:layout_margin="18dp"
+            />
+
+    </FrameLayout>
+
+
+</RelativeLayout>

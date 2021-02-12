@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    cardElevation="15dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/product_seller_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Producto Nombre"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/product_seller_Name"
+            android:id="@+id/produc_seller_image"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/product_seller_Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio de  Producto"
+            android:layout_below="@+id/produc_seller_image"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorPrimary"/>
+
+
+        <TextView
+            android:id="@+id/product_codigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Codigo Chip"
+            android:layout_below="@+id/product_seller_Price"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/product_seller_Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion Producto"
+            android:layout_below="@+id/product_codigo"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/product_seller_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado de Producto"
+            android:layout_below="@+id/product_seller_Description"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/product_fechas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FechaDeVenta"
+            android:layout_below="@+id/product_seller_state"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorPrimary"/>
+
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

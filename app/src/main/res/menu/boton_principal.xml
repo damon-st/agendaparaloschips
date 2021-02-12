@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/add"
+        android:title="Añadir" />
+
+    <!--    <item-->
+    <!--        android:id="@+id/nav_perfil"-->
+    <!--        android:icon="@drawable/icono_perfil"-->
+    <!--        android:iconTint="@android:color/black"-->
+    <!--        android:title="Mi Perfil" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/nav_mensajes_sellers"-->
+<!--        android:icon="@mipmap/ic_launcher"-->
+<!--        android:iconTint="@android:color/black"-->
+<!--        android:title="Mensajes" />-->
+
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_logout"-->
+<!--        android:icon="@mipmap/ic_launcher"-->
+<!--        android:title="Volver al Menu" />-->
+
+</menu>

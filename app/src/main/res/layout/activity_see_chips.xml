@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C205A"
+    tools:context=".ui.SeeChips"
+
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcy_see_chips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+       />
+
+
+
+
+
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/progress_linear"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:pv_progressStyle="@style/Material.Drawable.LinearProgress.Custom"
+        app:pv_autostart="true"
+        app:pv_circular="false"
+        app:pv_progressMode="indeterminate"
+        app:lpd_strokeSize="10dp"
+        app:lpd_verticalAlign="center"
+        app:lpd_strokeColor="#FFFF4081"
+
+
+        />
+
+
+    <ImageButton
+        android:id="@+id/btn_scroll"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_arrow_down"
+        android:background="@drawable/cicle"
+        android:tint="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        />
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddChip">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/fotochip"
+        android:src="@drawable/iconofotoparachip"
+
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe el numero de Celular"
+        android:id="@+id/texto_numero_chip"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/fotochip"
+        android:textAlignment="center"
+        android:paddingTop="25dp"
+        android:layout_margin="5dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe el codigo del chip"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:layout_margin="5dp"
+        android:id="@+id/texto_codigo_chip"
+        android:layout_below="@+id/texto_numero_chip"
+        />
+    <LinearLayout
+        android:id="@+id/linerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/texto_codigo_chip"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <RadioGroup
+                android:layout_margin="10dp"
+                android:id="@+id/GrupoChips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Claro"
+                    android:id="@+id/radioButton_claro"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movistar"
+                    android:id="@+id/radioButton_movistar"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CNT"
+                    android:id="@+id/radioButton_cnt"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tuenti"
+                    android:id="@+id/radioButton_tuenti"
+                    />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginLeft="90dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/icono_chips"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_below="@+id/linerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AñadirChip"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounden_button"
+        android:textColor="@android:color/white"
+        android:padding="10sp"
+        android:id="@+id/botonChip"/>
+
+
+   </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

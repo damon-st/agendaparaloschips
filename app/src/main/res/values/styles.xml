@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="Material.Drawable.LinearProgress.Custom">
+        <item name="lpd_maxLineWidth">75%</item>
+        <item name="lpd_minLineWidth">10%</item>
+        <item name="lpd_strokeSize">8dp</item>
+        <item name="lpd_strokeColor">?attr/colorAccent</item>
+        <item name="lpd_strokeSecondaryColor">?attr/colorControlNormal</item>
+        <item name="lpd_reverse">false</item>
+        <item name="lpd_travelDuration">1000</item>
+        <item name="lpd_transformDuration">600</item>
+        <item name="lpd_keepDuration">200</item>
+        <item name="lpd_transformInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="pv_progressMode">indeterminate</item>
+        <item name="lpd_inAnimDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="lpd_outAnimDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="lpd_verticalAlign">top</item>
+    </style>
+
+</resources>
