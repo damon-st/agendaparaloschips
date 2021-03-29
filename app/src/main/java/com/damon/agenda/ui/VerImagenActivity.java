@@ -8,13 +8,14 @@ import android.widget.ImageView;
 import com.damon.agenda.R;
 import com.squareup.picasso.Picasso;
 
+import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class VerImagenActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private String imageUrl;
-    private PhotoViewAttacher photoViewAttacher;// libreria que se necesita para hacer zoom las imagenes
+    private PhotoView photoViewAttacher;// libreria que se necesita para hacer zoom las imagenes
 
 
     @Override
@@ -26,7 +27,11 @@ public class VerImagenActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image_viewer);
         imageUrl = getIntent().getStringExtra("url");
 
-        photoViewAttacher = new PhotoViewAttacher(imageView);
+        try {
+            photoViewAttacher = findViewById(R.id.image_viewer);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         Picasso.get().load(imageUrl).into(imageView);
 
