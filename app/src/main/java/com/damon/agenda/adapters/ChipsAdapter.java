@@ -26,6 +26,7 @@ import com.damon.agenda.R;
 import com.damon.agenda.ui.VerImagenActivity;
 import com.damon.agenda.model.Chips;
 import com.damon.agenda.viewholder.ChipViewHolder;
+import com.damon.agenda.viewholder.HeaderItemViewHolder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -33,17 +34,19 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> {
+public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> implements StickyRecyclerHeadersAdapter<HeaderItemViewHolder> {
 
     private Activity activity;
 
@@ -53,6 +56,7 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> {
     private DatabaseReference unverifiedProductsRef;
     private FirebaseStorage storage;
     private Timer timer;
+    private Calendar calendar;
 
     public ChipsAdapter(Activity activity, List<Chips> chipsList,DatabaseReference unverifiedProductsRef,FirebaseStorage storage) {
         this.activity = activity;
@@ -66,6 +70,7 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> {
     @Override
     public ChipViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity).inflate(R.layout.nuevodisenodechip,parent,false);
+        calendar = Calendar.getInstance();
         return new ChipViewHolder(view);
     }
 
@@ -73,6 +78,8 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> {
     public void onBindViewHolder(@NonNull ChipViewHolder holder, int position) {
 
         Chips model = chipsList.get(position);
+
+//        System.out.println("FECHA " + model.getConverDate());
 
         holder.txtprdouctName.setText(model.getCategory());
         holder.txtProductDescription.setText("Fecha de Registro= :"+model.getDate());
@@ -173,6 +180,37 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> {
         ClipData texto = ClipData.newPlainText("",data) ;
         clipboardManager.setPrimaryClip(texto);
         Toast.makeText(activity, "Se a copiado al portatapeles", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public long getHeaderId(int position) {
+        Chips chips = chipsList.get(position);
+//        System.out.println("FECHA " + chips.getConverDate());
+        return chips.getConverDate().getMonth();
+    }
+
+    @Override
+    public HeaderItemViewHolder onCreateHeaderViewHolder(ViewGroup parent) {
+        View view = LayoutInflater.from(activity).inflate(R.layout.header_item,parent,false);
+        return new HeaderItemViewHolder(view);
+    }
+
+    @Override
+    public void onBindHeaderViewHolder(HeaderItemViewHolder holder, int i) {
+        Chips chips = chipsList.get(i);
+        holder.titulo.setText(getMonth(chips.getConverDate().getMonth()) + " " + getYear(chips.getConverDate()));
+    }
+
+    private int getYear(Date date){
+        calendar.setTime(date);
+       return calendar.get(Calendar.YEAR);
+    }
+
+    private String getMonth(int position){
+        String[] moth = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto",
+                        "Septiembre","Octubre","Noviembre","Diciembre"};
+
+        return moth[position];
     }
 
     @Override

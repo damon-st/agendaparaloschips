@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.rey.material.widget.ProgressView;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -85,6 +87,7 @@ public class SeeChips extends AppCompatActivity {
 
         adapter = new ChipsAdapter(this,chipsList,refDeleteOrUpdate,storage);
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new StickyRecyclerHeadersDecoration(adapter));
 
         InitializeDataChips();
 
@@ -123,6 +126,13 @@ public class SeeChips extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()){
+//                            if (chipsList.size()>0){
+//                                chipsList.clear();
+//                            }
+                            if (chipsList.size()>0){
+                                chipsList.clear();
+                            }
+
                             for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                                 Chips chips = snapshot.getValue(Chips.class);
 //                                System.out.println("Fecha " + chips.getConverDate());
@@ -132,7 +142,6 @@ public class SeeChips extends AppCompatActivity {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                 chipsList.sort((c1,c2) -> c1.getConverDate().compareTo(c2.getConverDate()));
                             }
-
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -141,6 +150,7 @@ public class SeeChips extends AppCompatActivity {
                             });
 
                             adapter.notifyDataSetChanged();
+
                         }else {
                             runOnUiThread(new Runnable() {
                                 @Override

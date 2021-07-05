@@ -1,4 +1,4 @@
-package com.damon.agenda.model;
+  package com.damon.agenda.model;
 
 import java.util.Date;
 
@@ -136,8 +136,9 @@ public class Chips {
 
 
     public Date getConverDate(){
-        Date date = new Date();
-        date.setTime(getFormatDate());
+        Date date = new Date(getFormatDate());
+        System.out.println("FECHA " + date);
+
         return date;
     }
 }
