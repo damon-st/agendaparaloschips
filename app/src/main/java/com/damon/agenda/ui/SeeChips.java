@@ -2,6 +2,7 @@ package com.damon.agenda.ui;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -124,8 +125,14 @@ public class SeeChips extends AppCompatActivity {
                         if (dataSnapshot.exists()){
                             for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                                 Chips chips = snapshot.getValue(Chips.class);
+//                                System.out.println("Fecha " + chips.getConverDate());
                                 chipsList.add(chips);
                             }
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                chipsList.sort((c1,c2) -> c1.getConverDate().compareTo(c2.getConverDate()));
+                            }
+
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

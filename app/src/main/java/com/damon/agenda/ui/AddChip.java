@@ -303,6 +303,7 @@ public class AddChip extends AppCompatActivity {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
+        long fechLong = date.getTime();
         try {
             ventaFecha = date.getTime();
 //            System.out.println("venta " + ventaFecha);
@@ -330,6 +331,7 @@ public class AddChip extends AppCompatActivity {
         productMap.put("codigo",codigochip);
         productMap.put("search",numeroCelular.toLowerCase());
         productMap.put("numerofecha",ventaFecha);
+        productMap.put("formatDate",fechLong);
 
 //        //nuevo creado para los vendedores
 //        productMap.put("name",sName);

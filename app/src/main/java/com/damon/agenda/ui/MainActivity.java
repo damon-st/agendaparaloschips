@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +18,17 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.damon.agenda.R;
 import com.damon.agenda.adapters.CategoryAdapter;
 import com.damon.agenda.model.CategoryModel;
+import com.damon.agenda.model.Chips;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Handler sliderHandler = new Handler();
 
+    private FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         getSupportActionBar().hide();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        DatabaseReference reference = firebaseDatabase.getReference().child("Products");
 
         addChip = findViewById(R.id.addChip);
 
@@ -84,6 +99,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
         addChip.setOnClickListener(v -> AddChip());
+//        long date  = new Date().getTime();
+//        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull  DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()){
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//                        Chips chips = snapshot.getValue(Chips.class);
+//                        HashMap<String,Object> hashMap = new HashMap<>();
+//                        hashMap.put("formatDate",date);
+//                        reference.child(chips.getPid()).updateChildren(hashMap);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull  DatabaseError databaseError) {
+//                Toast.makeText(MainActivity.this, "Errir "  + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 

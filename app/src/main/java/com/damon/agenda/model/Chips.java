@@ -1,15 +1,36 @@
 package com.damon.agenda.model;
 
+import java.util.Date;
+
 public class Chips {
 
    private String image,numero,check,pid,category,time,productState,date,fecha,codigo,search;
 
    private float numerofecha;
 
+   private long formatDate;
+
+
+    public long getFormatDate() {
+        return formatDate;
+    }
+
+    public void setFormatDate(long formatDate) {
+        this.formatDate = formatDate;
+    }
+
+    public float getNumerofecha() {
+        return numerofecha;
+    }
+
+    public void setNumerofecha(float numerofecha) {
+        this.numerofecha = numerofecha;
+    }
+
     public Chips() {
     }
 
-    public Chips(String image, String numero, String check, String pid, String category, String time, String productState, String date, String fecha, String codigo, String search, float numerofecha) {
+    public Chips(String image, String numero, String check, String pid, String category, String time, String productState, String date, String fecha, String codigo, String search, float numerofecha, long formatDate) {
         this.image = image;
         this.numero = numero;
         this.check = check;
@@ -22,6 +43,7 @@ public class Chips {
         this.codigo = codigo;
         this.search = search;
         this.numerofecha = numerofecha;
+        this.formatDate = formatDate;
     }
 
     public String getSearch() {
@@ -110,5 +132,12 @@ public class Chips {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+
+    public Date getConverDate(){
+        Date date = new Date();
+        date.setTime(getFormatDate());
+        return date;
     }
 }
