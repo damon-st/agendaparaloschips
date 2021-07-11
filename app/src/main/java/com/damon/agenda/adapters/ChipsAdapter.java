@@ -1,6 +1,7 @@
 package com.damon.agenda.adapters;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Toast;
@@ -41,6 +43,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
@@ -141,6 +144,10 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> implemen
                                 ChangeProductVenta(productID);
                                 ChangeProductState(productID,"No Vendido");
                                 return true;
+                            case R.id.cambiar_fecha_registro:
+                                changeProductRegisterDay(position,model);
+                                return true;
+
                             case  R.id.eliminar_chip:
                                 AlertDialog.Builder confirm = new AlertDialog.Builder(activity);
                                 confirm.setTitle("Eliminar Chip");
@@ -173,6 +180,24 @@ public class ChipsAdapter  extends RecyclerView.Adapter<ChipViewHolder> implemen
 
         holder.txtProductPrice.setOnClickListener(v -> CopiarPortapapeles(model.getNumero()));
 
+    }
+
+    private void changeProductRegisterDay(int position, Chips model) {
+        Calendar calendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(activity, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Calendar calendar1  = Calendar.getInstance();
+                calendar1.set(year,month,dayOfMonth);
+                long fecha = calendar1.getTime().getTime();
+                HashMap<String,Object> hashMap = new HashMap<>();
+                hashMap.put("formatDate",fecha);
+                unverifiedProductsRef.child(model.getPid()).updateChildren(hashMap);
+            }
+        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+
+
+        datePickerDialog.show();
     }
 
     private void CopiarPortapapeles(String data){

@@ -9,6 +9,9 @@
         android:title="Marcar Como No Vendido"
         />
 
+    <item android:id="@+id/cambiar_fecha_registro"
+        android:title="Cambiar fecha de Registro"/>
+
     <item android:id="@+id/eliminar_chip"
         android:title="Eliminar Chip"
         />
